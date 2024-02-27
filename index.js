@@ -17,7 +17,8 @@ async function invokeAction({ action, id, name, email, phone }) {
     case "list":
       try {
         const allContacts = await contactsServises.listContacts();
-        return allContacts;
+        console.log(allContacts);
+        break;
       } catch (error) {
         throw new error(error.message);
       }
@@ -25,7 +26,8 @@ async function invokeAction({ action, id, name, email, phone }) {
     case "get":
       try {
         const contact = await contactsServises.getContactById(id);
-        return contact;
+        console.log(contact);
+        break;
       } catch (error) {
         throw new error(error.message);
       }
@@ -36,14 +38,16 @@ async function invokeAction({ action, id, name, email, phone }) {
           email,
           phone
         );
-        return newContact;
+        console.log(newContact);
+        break;
       } catch (error) {
         throw new error(error.message);
       }
     case "remove":
       try {
         const delContact = await contactsServises.removeContact(id);
-        return delContact;
+        console.log(delContact);
+        break;
       } catch (error) {
         throw new error(error.message);
       }
